@@ -9,7 +9,7 @@ public class GamePiece : MonoBehaviour
 
     public int X
     {
-        get { return X; }
+        get { return x; }
         set { if (IsMovable()) { x = value; } }
     }
 
@@ -82,5 +82,22 @@ public class GamePiece : MonoBehaviour
     {
         return colorComponent != null;
     }
+
+
+    void OnMouseEnter()
+    {
+        grid.EnterPiece(this);
+    }
+
+    void OnMouseDown()
+    {
+        grid.PressPiece(this);
+    }
+
+    void OnMouseUp()
+    {
+        grid.ReleasePiece();
+    }
+
 
 }
